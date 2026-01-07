@@ -1,14 +1,24 @@
-import Link from "next/link"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight } from "lucide-react"
+import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 
 export default function ProductsPage() {
   return (
     <main className="py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Our Products</h1>
-          <p className="mt-4 text-lg text-muted-foreground">Choose the right platform for your mission</p>
+          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Our Products
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Choose the right platform for your mission
+          </p>
         </div>
 
         <div className="mt-16 grid gap-8 md:grid-cols-2">
@@ -17,7 +27,7 @@ export default function ProductsPage() {
             <Card className="h-full overflow-hidden border-border bg-card transition-all hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5">
               <div className="aspect-video overflow-hidden">
                 <img
-                  src="/rov-remotely-operated-underwater-vehicle.jpg"
+                  src="/varuna.JPG"
                   alt="ROV"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
@@ -68,5 +78,5 @@ export default function ProductsPage() {
         </div>
       </div>
     </main>
-  )
+  );
 }

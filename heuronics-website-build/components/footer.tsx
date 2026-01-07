@@ -1,4 +1,5 @@
-import Link from "next/link"
+import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   return (
@@ -7,8 +8,14 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2">
-            <Link href="/" className="text-xl font-bold text-foreground">
-              Heuronics
+            <Link href="/" className="inline-block">
+              <Image
+                src="/images/logo.png"
+                alt="Heuronics"
+                width={150}
+                height={40}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               ROVs & AUVs built for serious underwater work.
@@ -47,7 +54,10 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link
+                  href="/products"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
                   Compare
                 </Link>
               </li>
@@ -56,30 +66,47 @@ export function Footer() {
 
           {/* Industries */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground">Industries</h3>
+            <h3 className="text-sm font-semibold text-foreground">
+              Industries
+            </h3>
             <ul className="mt-4 space-y-3">
               <li>
-                <Link href="/industries" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link
+                  href="/industries"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
                   Energy
                 </Link>
               </li>
               <li>
-                <Link href="/industries" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link
+                  href="/industries"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
                   Research
                 </Link>
               </li>
               <li>
-                <Link href="/industries" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link
+                  href="/industries"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
                   Aquaculture
                 </Link>
               </li>
               <li>
-                <Link href="/industries" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link
+                  href="/industries"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
                   Defense
                 </Link>
               </li>
               <li>
-                <Link href="/industries" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link
+                  href="/industries"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
                   Inspection
                 </Link>
               </li>
@@ -91,8 +118,19 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-foreground">Company</h3>
             <ul className="mt-4 space-y-3">
               <li>
-                <Link href="/about" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link
+                  href="/about"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
                   About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/gallery"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  Gallery
                 </Link>
               </li>
               <li>
@@ -104,7 +142,10 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/resources" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link
+                  href="/resources"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
                   Resources
                 </Link>
               </li>
@@ -121,9 +162,11 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-border pt-8">
-          <p className="text-center text-sm text-muted-foreground">© 2025 Heuronics — All rights reserved.</p>
+          <p className="text-center text-sm text-muted-foreground">
+            © 2025 Heuronics — All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

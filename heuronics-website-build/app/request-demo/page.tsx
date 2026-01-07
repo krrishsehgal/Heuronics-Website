@@ -1,18 +1,30 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { CheckCircle2 } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { CheckCircle2 } from "lucide-react";
 
 export default function RequestDemoPage() {
-  const [submitted, setSubmitted] = useState(false)
+  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,35 +37,34 @@ export default function RequestDemoPage() {
     phone: "",
     budget: "",
     currency: "USD",
-  })
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault()
+    e.preventDefault();
 
-  try {
-    const res = await fetch("/api/demo", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
+    try {
+      const res = await fetch("/api/demo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (!res.ok) {
-      throw new Error("Failed to submit request")
+      if (!res.ok) {
+        throw new Error("Failed to submit request");
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Demo request error:", error);
+      alert("Something went wrong. Please try again.");
     }
-
-    setSubmitted(true)
-  } catch (error) {
-    console.error("Demo request error:", error)
-    alert("Something went wrong. Please try again.")
-  }
-}
-
+  };
 
   const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
-  }
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
   if (submitted) {
     return (
@@ -62,21 +73,29 @@ export default function RequestDemoPage() {
           <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
             <CheckCircle2 className="h-8 w-8 text-primary" />
           </div>
-          <h1 className="mt-6 text-3xl font-bold text-foreground">Thank you for your request!</h1>
-          <p className="mt-4 text-lg text-muted-foreground">We'll get back within 2 business days.</p>
+          <h1 className="mt-6 text-3xl font-bold text-foreground">
+            Thank you for your request!
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground">
+            We'll get back within 2 business days.
+          </p>
           <div className="mt-8">
-            <Button onClick={() => (window.location.href = "/")}>Return to Home</Button>
+            <Button onClick={() => (window.location.href = "/")}>
+              Return to Home
+            </Button>
           </div>
         </div>
       </main>
-    )
+    );
   }
 
   return (
     <main className="py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Request a Demo</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Request a Demo
+          </h1>
           <p className="mt-4 text-lg text-muted-foreground">
             Tell us about your requirements and we'll schedule a demonstration
           </p>
@@ -85,7 +104,9 @@ export default function RequestDemoPage() {
         <Card className="mt-12 border-border bg-card">
           <CardHeader>
             <CardTitle>Contact Information</CardTitle>
-            <CardDescription>We'll use this to get in touch with you</CardDescription>
+            <CardDescription>
+              We'll use this to get in touch with you
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -136,7 +157,9 @@ export default function RequestDemoPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number (with country code) *</Label>
+                  <Label htmlFor="phone">
+                    Phone Number (with country code) *
+                  </Label>
                   <Input
                     id="phone"
                     type="tel"
@@ -150,7 +173,10 @@ export default function RequestDemoPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="currency">Currency</Label>
-                  <Select value={formData.currency} onValueChange={(val) => handleChange("currency", val)}>
+                  <Select
+                    value={formData.currency}
+                    onValueChange={(val) => handleChange("currency", val)}
+                  >
                     <SelectTrigger id="currency" className="bg-background">
                       <SelectValue />
                     </SelectTrigger>
@@ -229,7 +255,7 @@ export default function RequestDemoPage() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full cursor-pointer bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   Submit Request
                 </Button>
@@ -239,5 +265,5 @@ export default function RequestDemoPage() {
         </Card>
       </div>
     </main>
-  )
+  );
 }

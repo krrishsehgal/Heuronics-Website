@@ -1,21 +1,27 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Brain, Navigation, Radio, Battery, Boxes } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Brain, Navigation, Radio, Battery, Boxes } from "lucide-react";
 
 export default function TechnologyPage() {
   const technologies = [
     {
       icon: Brain,
-      title: "Autonomy",
-      description: "Adaptive mission planner; safe modes; health monitoring.",
+      title: "Autonomy Stack (AUV)",
+      description: "Independent mission execution capabilities.",
       details:
-        "Our autonomy stack v2.0 features real-time mission adaptation, intelligent fault detection and recovery, energy-aware planning, and comprehensive system health monitoring to ensure safe autonomous operations.",
+        "Includes mission planning, waypoint navigation, obstacle avoidance, and onboard data storage for autonomous operations. The stack is designed for reliable execution without constant operator intervention.",
     },
     {
       icon: Navigation,
-      title: "Navigation",
-      description: "DVL, INS, depth, and visual odometry fusion.",
+      title: "Navigation & Control",
+      description: "Integrated stability and positional awareness.",
       details:
-        "Multi-sensor fusion combining Doppler Velocity Log, Inertial Navigation System, pressure sensors, and visual odometry for centimeter-level positioning accuracy in GPS-denied underwater environments.",
+        "Integrated navigation systems combine inertial measurement units (IMU), depth sensors, and acoustic sensors to maintain stability and positional awareness underwater. Our control loops ensure precise maneuvering in diverse environmental conditions.",
     },
     {
       icon: Radio,
@@ -33,19 +39,23 @@ export default function TechnologyPage() {
     },
     {
       icon: Boxes,
-      title: "Materials",
-      description: "Corrosion-resistant alloys and polymers.",
+      title: "Modular Payload Architecture",
+      description: "Mission-specific vehicle configurations.",
       details:
-        "Marine-grade aluminum alloys, titanium components for deep-rated sections, advanced polymer seals, and conformal coatings to withstand harsh saltwater environments and extreme pressures.",
+        "Designed to support interchangeable payloads, allowing vehicles to be configured for specific missions. Our standardized physical and electrical interfaces simplify the integration of custom third-party sensors.",
     },
-  ]
+  ];
 
   return (
     <main className="py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Technology Stack</h1>
-          <p className="mt-4 text-lg text-muted-foreground">Advanced systems engineering for underwater robotics</p>
+          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Technology Stack
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Advanced systems engineering for underwater robotics
+          </p>
         </div>
 
         <div className="mt-16 grid gap-8 lg:grid-cols-2">
@@ -59,10 +69,14 @@ export default function TechnologyPage() {
                   <tech.icon className="h-7 w-7 text-primary" />
                 </div>
                 <CardTitle className="text-2xl">{tech.title}</CardTitle>
-                <CardDescription className="text-base text-muted-foreground">{tech.description}</CardDescription>
+                <CardDescription className="text-base text-muted-foreground">
+                  {tech.description}
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground leading-relaxed">{tech.details}</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {tech.details}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -70,11 +84,15 @@ export default function TechnologyPage() {
 
         {/* Technical Specifications */}
         <div className="mt-24 rounded-2xl border border-border bg-secondary/20 p-8 lg:p-12">
-          <h2 className="text-2xl font-bold text-foreground">System Architecture</h2>
+          <h2 className="text-2xl font-bold text-foreground">
+            System Architecture
+          </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            Our platform architecture is built on modular, field-proven components with redundant critical systems. The
-            core compute stack runs real-time Linux with deterministic control loops, ROS 2 middleware for sensor
-            integration, and custom autonomy software written in modern C++ and Python.
+            Our platform architecture is built on modular, field-proven
+            components with redundant critical systems. The core compute stack
+            runs real-time Linux with deterministic control loops, ROS 2
+            middleware for sensor integration, and custom autonomy software
+            written in modern C++ and Python.
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             <div>
@@ -85,15 +103,19 @@ export default function TechnologyPage() {
             </div>
             <div>
               <h3 className="font-semibold text-foreground">Interfaces</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Ethernet, RS-485, CAN, analog, and digital I/O</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Ethernet, RS-485, CAN, analog, and digital I/O
+              </p>
             </div>
             <div>
               <h3 className="font-semibold text-foreground">Software</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Open architecture with documented APIs</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Open architecture with documented APIs
+              </p>
             </div>
           </div>
         </div>
       </div>
     </main>
-  )
+  );
 }

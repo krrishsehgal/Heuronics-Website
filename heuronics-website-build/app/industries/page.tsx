@@ -1,73 +1,93 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Zap, FlaskConical, Fish, Shield, HardHat } from "lucide-react"
+import { Zap, FlaskConical, Fish, Shield } from "lucide-react";
 
 export default function IndustriesPage() {
   const industries = [
     {
       icon: Zap,
-      title: "Offshore Energy",
-      description: "Inspection & intervention in harsh seas.",
+      title: "Energy & Offshore",
+      description:
+        "Operational continuity and safety for subsea infrastructure.",
       details:
-        "Pipeline monitoring, platform inspection, subsea infrastructure maintenance, and cable surveys for oil & gas and renewable energy sectors.",
+        "Used for subsea pipeline inspection, offshore wind foundation surveys, and structural integrity assessments without interrupting operations. Our systems ensure continuous monitoring while reducing personnel risk.",
+      image: "/energyandoffshore.png",
+    },
+    {
+      icon: Shield,
+      title: "Defense & Security",
+      description: "Underwater threat detection and infrastructure protection.",
+      details:
+        "Supports harbor surveillance, hull inspection, and underwater threat detection with minimal risk to personnel. We provide high-resolution data for mission-critical security operations.",
+      image: "/security.png",
     },
     {
       icon: FlaskConical,
-      title: "Research",
-      description: "Flexible payloads for ocean science.",
+      title: "Marine Research",
+      description: "High-quality oceanographic data for scientific discovery.",
       details:
-        "Marine biology studies, oceanographic surveys, habitat mapping, climate research, and scientific sample collection.",
+        "Enables seabed mapping, biodiversity monitoring, and environmental data collection in deep and shallow waters. Our focus on data quality and repeatability supports long-term scientific research.",
+      image: "/marine.png",
     },
     {
       icon: Fish,
       title: "Aquaculture",
-      description: "Routine net checks & stock monitoring.",
+      description: "Improving operational efficiency in marine farming.",
       details:
-        "Net integrity inspection, fish health monitoring, feeding optimization, site selection surveys, and environmental impact assessment.",
+        "Assists in net inspection, cage monitoring, and infrastructure health checks to improve operational efficiency and ensure stock health through persistent underwater presence.",
+      image: "/aqauculture.png",
     },
-    {
-      icon: Shield,
-      title: "Defense",
-      description: "MCM, harbor security, training.",
-      details:
-        "Mine countermeasures, harbor protection, underwater surveillance, search and recovery operations, and military training exercises.",
-    },
-    {
-      icon: HardHat,
-      title: "Inspection",
-      description: "Hull, pipeline, and infrastructure surveys.",
-      details:
-        "Ship hull inspection, dam surveys, bridge pier assessment, underwater structure monitoring, and coastal infrastructure maintenance.",
-    },
-  ]
+  ];
 
   return (
     <main className="py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Industries We Serve</h1>
-          <p className="mt-4 text-lg text-muted-foreground">Proven solutions across multiple sectors</p>
+          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Industries & Applications
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Engineering-driven solutions for real-world underwater work
+          </p>
         </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 space-y-24">
           {industries.map((industry, idx) => (
-            <Card
+            <div
               key={idx}
-              className="group border-border bg-card transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5"
+              className={`flex flex-col gap-12 lg:flex-row lg:items-center ${
+                idx % 2 === 1 ? "lg:flex-row-reverse" : ""
+              }`}
             >
-              <CardHeader>
-                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
+              <div className="flex-1 space-y-6">
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
                   <industry.icon className="h-7 w-7 text-primary" />
                 </div>
-                <CardTitle className="text-xl">{industry.title}</CardTitle>
-                <CardDescription className="text-base text-muted-foreground">{industry.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground leading-relaxed">{industry.details}</p>
-              </CardContent>
-            </Card>
+                <h2 className="text-3xl font-bold text-foreground">
+                  {industry.title}
+                </h2>
+                <p className="text-xl text-primary/80 font-medium">
+                  {industry.description}
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  {industry.details}
+                </p>
+              </div>
+              <div className="flex-1">
+                <div className="aspect-video overflow-hidden rounded-2xl border border-border shadow-2xl">
+                  <img
+                    src={`${
+                      industry.image
+                    }?height=600&width=800&query=${encodeURIComponent(
+                      industry.title
+                    )}`}
+                    alt={industry.title}
+                    className="h-full w-full object-cover transition-transform hover:scale-105"
+                  />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </main>
-  )
+  );
 }

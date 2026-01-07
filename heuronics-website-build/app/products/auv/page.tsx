@@ -1,14 +1,22 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Navigation, Battery, Brain, Anchor } from "lucide-react"
+import { ArrowRight, Navigation, Battery, Brain, Shield } from "lucide-react"
 
 export default function AUVPage() {
   const capabilities = [
-    { icon: Brain, title: "True Autonomy", desc: "Adaptive mission planning and execution" },
-    { icon: Navigation, title: "Precision Navigation", desc: "DVL, INS, and visual odometry fusion" },
-    { icon: Battery, title: "Extended Endurance", desc: "Up to 72 hours of continuous operation" },
-    { icon: Anchor, title: "Modular Payloads", desc: "Flexible sensor and tool integration" },
+    {
+      icon: Navigation,
+      title: "Autonomous Navigation",
+      desc: "Advanced mission planning and path optimization",
+    },
+    {
+      icon: Shield,
+      title: "Obstacle Avoidance",
+      desc: "Real-time sensing to ensure vehicle and infrastructure safety",
+    },
+    { icon: Brain, title: "Environmental Logging", desc: "Comprehensive data collection throughout the mission" },
+    { icon: Battery, title: "Long Endurance", desc: "Extended operation times with minimal surface support" },
   ]
 
   return (
@@ -19,11 +27,12 @@ export default function AUVPage() {
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                Autonomous Underwater Vehicles (AUVs)
+                AUV – Autonomous Underwater Vehicle
               </h1>
               <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
-                Untethered platforms with advanced autonomy for long-range missions, ocean mapping, survey operations,
-                and persistent underwater presence.
+                Heuronics’ AUVs are untethered platforms capable of executing pre-programmed missions autonomously,
+                making them suitable for long-duration surveys and data collection. Our systems enable repeatable
+                mission execution with significantly reduced surface intervention.
               </p>
               <div className="mt-8">
                 <Link href="/request-demo">
@@ -35,7 +44,11 @@ export default function AUVPage() {
               </div>
             </div>
             <div className="relative">
-              <img src="/autonomous-underwater-vehicle-torpedo-shaped.jpg" alt="AUV underwater" className="rounded-xl" />
+              <img
+                src="/autonomous-underwater-vehicle-torpedo-shaped.jpg"
+                alt="AUV underwater"
+                className="rounded-xl"
+              />
             </div>
           </div>
         </div>
@@ -68,36 +81,42 @@ export default function AUVPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-bold text-foreground">Advanced Autonomy</h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                Our AUV autonomy stack enables safe, reliable operations without constant human oversight. The system
-                adapts to changing conditions, manages energy efficiently, and makes intelligent decisions to ensure
-                mission success.
-              </p>
+              <h2 className="text-3xl font-bold text-foreground">Typical Applications</h2>
               <ul className="mt-8 space-y-4">
-                {[
-                  "Mission planning and re-planning",
-                  "Obstacle detection and avoidance",
-                  "Health monitoring and fault management",
-                  "Energy-aware path optimization",
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <div className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" />
+                {["Seabed mapping", "Environmental monitoring", "Large-area underwater surveys"].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-3">
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary" />
                     <span className="text-muted-foreground">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="aspect-square overflow-hidden rounded-xl">
-                  <img
-                    src={`/auv-underwater-autonomous-.jpg?height=300&width=300&query=AUV+underwater+autonomous+${i}`}
-                    alt={`AUV operation ${i}`}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              ))}
+            <div>
+              <h2 className="text-3xl font-bold text-foreground">Technical Specifications</h2>
+              <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card">
+                <table className="w-full text-left text-sm">
+                  <thead className="border-b border-border bg-secondary/50">
+                    <tr>
+                      <th className="px-6 py-3 font-semibold text-foreground">Parameter</th>
+                      <th className="px-6 py-3 font-semibold text-foreground">Specification</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {[
+                      { p: "Operating Depth", s: "300–1000 m (model dependent)" },
+                      { p: "Navigation", s: "IMU, DVL, INS, GPS (surface)" },
+                      { p: "Endurance", s: "4–10 hours" },
+                      { p: "Control Mode", s: "Autonomous / Pre-programmed" },
+                      { p: "Payload", s: "Side-scan sonar, cameras, CTD" },
+                    ].map((row, idx) => (
+                      <tr key={idx}>
+                        <td className="px-6 py-4 font-medium text-foreground">{row.p}</td>
+                        <td className="px-6 py-4 text-muted-foreground">{row.s}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
