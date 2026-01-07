@@ -63,8 +63,11 @@ export function Navbar() {
               Gallery
             </Link>
             <Link href="/request-demo">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Request a Demo
+              <Button
+                asChild
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
+              >
+                <Link href="/request-demo">Request a Demo</Link>
               </Button>
             </Link>
           </div>

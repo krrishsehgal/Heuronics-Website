@@ -80,7 +80,7 @@ export default function RequestDemoPage() {
             We'll get back within 2 business days.
           </p>
           <div className="mt-8">
-            <Button onClick={() => (window.location.href = "/")}>
+            <Button asChild onClick={() => (window.location.href = "/")}>
               Return to Home
             </Button>
           </div>
